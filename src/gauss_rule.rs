@@ -8,38 +8,41 @@ pub fn gauss_rule(points_of_integration: u8) -> HashMap<u8, Vec<f64>> {
     //natural coordinate for numerical integration
 
     let mut natural_coordinate: HashMap<u8, Vec<f64>> = HashMap::new();
+    let mut weight_for_gauss_points:HashMap<u8, Vec<f64>>=HashMap::new();
 
+    //Fill the natural coordinates and weights for numerical integration in HashMaps
     if points_of_integration == 1 {
         natural_coordinate.insert(1, vec![0.0]);
-    } else {
+        weight_for_gauss_points.insert(1, vec![2.0]);
+    } else if points_of_integration == 2 {
+        natural_coordinate.insert(2, vec![-0.5773502692, 0.5773502692]);
+        weight_for_gauss_points.insert(2, vec![1.0, 1.0]);
+
+    }else if points_of_integration ==3{
+        natural_coordinate.insert(3, vec![-0.774596697, 0.0, 0.774596697]);
+        weight_for_gauss_points.insert(3, vec![0.5555555556, 0.8888888889, 0.5555555556]);
+    }   
+    else if points_of_integration ==4{
+        natural_coordinate.insert(4, vec![-0.8611363116,-0.3399810436,0.3399810436, 0.8611363116]);
+        weight_for_gauss_points.insert(4, vec![0.3478548451, 0.6521451549,0.6521451549, 0.3478548451]);
+    }  
+    // else if points_of_integration ==5{
+    //     natural_coordinate.insert(5, vec![-0.774596697, 0.0, 0.774596697]);
+    //     weight_for_gauss_points.insert(5, vec![0.5555555556, 0.8888888889, 0.5555555556]);
+    // }  
+    // else if points_of_integration ==6{
+    //     natural_coordinate.insert(6, vec![-0.774596697, 0.0, 0.774596697]);
+    //     weight_for_gauss_points.insert(6, vec![0.5555555556, 0.8888888889, 0.5555555556]);
+    // }  
+    // else if points_of_integration ==7{
+    //     natural_coordinate.insert(7, vec![-0.774596697, 0.0, 0.774596697]);
+    //     weight_for_gauss_points.insert(7, vec![0.5555555556, 0.8888888889, 0.5555555556]);
+    // }   
+    
+     else {
         println!("deu pau")
     }
     let v = natural_coordinate.get(&points_of_integration);
     println!("v = {:?}", v);
     natural_coordinate
-    //match points_of_integration {
-    // 1 => natural_coordinate.insert(1, vec![0.0]),//k:points of integration, v:coordniates
-    // 2 => natural_coordinate.insert(2, vec![0.0]),
-    // 3 => natural_coordinate.insert(3, vec![0.0]),
-    // 4 => natural_coordinate.insert(4, vec![0.0]),
-    //  5 => natural_coordinate.insert(5, vec![0.0]),
-    //  6 => natural_coordinate.insert(6, vec![0.0]),
-    //  7 => natural_coordinate.insert(7, vec![0.0]),
-    //  8 => natural_coordinate.insert(8, vec![0.0]),
-    // 0_u8 | 9_u8..=u8::MAX => todo!(),
-
-    //}
-    //println!("NV: {:?}", &natural_coordinate);
-} //
-
-fn coordinate(points_of_integration: u8) -> (){
-    let mut natural_coordinate: HashMap<u8, Vec<f64>> = HashMap::new();
-    if points_of_integration == 1 {
-        natural_coordinate.insert(1, vec![0.0]);
-    } else {
-        println!("deu pau")
-    }
-
-    let v = natural_coordinate.get(&points_of_integration);
-    //v
 }
