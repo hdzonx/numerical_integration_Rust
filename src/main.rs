@@ -1,7 +1,7 @@
 mod gauss_rule;
 fn main() {
     println!("Hello, world!");
-    let s: u8 = 1;
+    let s: u8 = 2;
     let g = gauss_rule::gauss_rule(s);
     println!("g = {:?}", g);
     println!("g = {:?}", g.get(&s));
@@ -12,4 +12,7 @@ fn main() {
         vector_of_integration_point = vector.to_vec();
     }
     println!("vector of integration points = {:?}", vector_of_integration_point);
+
+    let new_gauss_coord = gauss_rule::gauss_rule_with_option(s);
+    println!("gauss rule with option = {:?}", new_gauss_coord);
 }
