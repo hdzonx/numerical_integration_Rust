@@ -1,3 +1,4 @@
+mod curves;
 mod gauss_rule;
 mod linear_algebra;
 fn main() {
@@ -31,11 +32,17 @@ fn main() {
     use linear_algebra::newmatrix;
     //let row:u32 = 2;
     //let m_1 = newmatrix::NewMatrix{};
-    let mut m1 = newmatrix::NewMatrix {
+    let m1 = newmatrix::NewMatrix {
         n_columns: 2,
         n_rows: 3,
     };
-    let  matrix_zeros: Vec<Vec<f64>> = m1.matrix_2d();
-    let mm = m1.set_value(matrix_zeros,0, 1, 5.9);
-    m1.set_value(mm,1, 1, 4.0);
+    let matrix_zeros: Vec<Vec<f64>> = m1.matrix_2d();
+    let mm = m1.set_value(matrix_zeros, 0, 1, 5.9);
+    m1.set_value(mm, 1, 1, 4.0);
+
+    use curves::bezier_curve::factorial;
+    let value = 12.0;
+    let fact = factorial(value);
+    println!("factorinal of {} = {}", value, fact);
+
 }

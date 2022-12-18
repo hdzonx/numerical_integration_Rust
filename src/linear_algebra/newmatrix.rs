@@ -22,7 +22,7 @@ impl NewMatrix {
         //let mut matrix: Vec<Vec<f64>> = vec![vec![0.0; self.n_rows]; self.n_columns];
         //vec.remove(*row_i);
         // vec.insert(*row_i, value);
-        let mut new_matrix = matrix.clone();
+        let mut new_matrix:Vec<Vec<f64>> = matrix.clone();
         new_matrix[row_i][column_j] = value;
         // for i in 0..self.n_rows {
         //     for j in 0..self.n_columns {
