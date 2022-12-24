@@ -1,5 +1,3 @@
-//mod newmatrix {}
-//use ndarray::Array2;
 pub struct NewMatrix {
     pub n_rows: usize,
     pub n_columns: usize,
@@ -7,7 +5,6 @@ pub struct NewMatrix {
 
 impl NewMatrix {
     pub fn matrix_2d(&self) -> Vec<Vec<f64>> {
-        //let vx = vec![0;3];
         //Matrix of n rows and n colums
         let matrix: Vec<Vec<f64>> = vec![vec![0.0; self.n_rows]; self.n_columns];
         //let arr =[[1,1],[1,1]];
@@ -24,13 +21,7 @@ impl NewMatrix {
         // vec.insert(*row_i, value);
         let mut new_matrix:Vec<Vec<f64>> = matrix.clone();
         new_matrix[row_i][column_j] = value;
-        // for i in 0..self.n_rows {
-        //     for j in 0..self.n_columns {
-        //         if i == row_i && j == column_j {
-        //             new_matrix[i][j] = value;
-        //         }
-        //     }
-        // }
+        
         println!("matrix = {:?}", new_matrix);
         new_matrix
     }

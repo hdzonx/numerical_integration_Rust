@@ -45,4 +45,17 @@ fn main() {
     let fact = factorial(value);
     println!("factorinal of {} = {}", value, fact);
 
+
+    use curves::bezier_curve::get_bernstein_function;
+    let bern =get_bernstein_function(2.0, 1.0);
+    //println!("Bernstein function = {:?}", bern);
+
+    use curves::bezier_curve::plot_bernstein_fn;
+    let figure = plot_bernstein_fn();
+    println!("{:?}",figure)
+    
+
+ 
+    
+    
 }

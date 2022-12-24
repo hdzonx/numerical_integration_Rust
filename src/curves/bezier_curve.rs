@@ -1,4 +1,5 @@
 use ndarray::prelude::*;
+use plotters::prelude::*;
 /*
 The Bézier curve represent a important type of curve used in
 computer graphics. It is a curve that is defined by a set of points.
@@ -25,7 +26,7 @@ pub fn factorial(value: f64) -> f64 {
 In the function, n is the order of the Bernstein polynomial, i is the
 index. t == ξ and -1 ≤ ξ ≤ 1."""
 */
-pub fn Bernstein(n: f64, i: f64, t: f64) -> f64 {
+pub fn bernstein(n: f64, i: f64, t: f64) -> f64 {
     let berns: f64;
     berns = (factorial(n) / (factorial(i) * factorial(n - i)))
         * (((1.0 + t) / 2.0).powf(i))
@@ -37,15 +38,19 @@ pub fn Bernstein(n: f64, i: f64, t: f64) -> f64 {
 get the Bernstein function of order n in
 the range -1 ≤ ξ ≤ 1, for index i
  */
-pub fn get_Bernstein_function(n: f64, i: f64) -> Vec<f64> {
+pub fn get_bernstein_function(n: f64, i: f64) -> Vec<f64> {
     let steps = 1.0 / 50.0;
     let array_of_coords = Array::range(0., 10., steps);
 
     let mut vec_of_bers_val = Vec::<f64>::new();
 
     for t in array_of_coords {
-        let y = Bernstein(n, i, t);
+        let y = bernstein(n, i, t);
         vec_of_bers_val.push(y);
     }
     vec_of_bers_val
+}
+pub fn plot_bernstein_fn()  {
+   
+    
 }
